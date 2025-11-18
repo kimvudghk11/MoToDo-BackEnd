@@ -1,6 +1,6 @@
 const db = require('../config/db');
 
-async function findBUser(userId) {
+async function findByUser(userId) {
     const sql = 'SELECT * FROM sticky WHERE user_id = ?';
     const [rows] = await db.query(sql, [userId]);
 
@@ -53,7 +53,7 @@ async function deleteSticky(id, userId) {
 }
 
 module.exports = {
-    findBUser,
+    findByUser,
     createSticky,
     updateSticky,
     deleteSticky,
