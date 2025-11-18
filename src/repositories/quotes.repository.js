@@ -6,3 +6,5 @@ async function findById(id) {
 
     return rows[0] || null;
 }
+
+module.exports = { findById };
