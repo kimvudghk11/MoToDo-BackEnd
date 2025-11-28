@@ -23,7 +23,7 @@ async function createNotice(req, res) {
 }
 
 async function deleteNotice(req, res) {
-    const { noticeId } = req.parms;
+    const { noticeId } = req.params;
 
     await noticeRepo.deleteNotice(noticeId);
 
@@ -31,7 +31,7 @@ async function deleteNotice(req, res) {
 }
 
 async function patchNotice(req, res) {
-    const { noticeId } = req.parms;
+    const { noticeId } = req.params;
     const { title, content, groupId } = req.body;
 
     await noticeRepo.updateNotice({ id: noticeId, groupId, title, content });

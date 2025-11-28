@@ -12,7 +12,7 @@ async function findGroupsByUser(userId) {
     return rows;
 }
 
-async function createGruop({ code, name, creatorId}) {
+async function createGroup({ code, name, creatorId }) {
     const sql = `
         INSERT INTO groups (code, name, created_at, updated_at, creator_id)
         VALUES (?, ?, NOW(), NOW(), ?)
@@ -57,7 +57,7 @@ async function removeMemberByCode(groupCode, userId) {
 
 module.exports = {
     findGroupsByUser,
-    createGruop,
+    createGroup,
     addMember,
     checkGroupCodeExists,
     findGroupByCode,

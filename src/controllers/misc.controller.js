@@ -32,19 +32,19 @@ async function createCalendarIcon(req, res) {
 
 async function patchCalendarIcon(req, res) {
     const userId = req.user.id;
-    const { iconId } = req.parms;
+    const { iconId } = req.params;
     const { iconNumber } = req.body;
 
     await calendarIconRepo.updateIcon({ userId, iconId, iconNumber });
 
-    res.status(200).json({ message: 'Success patch Calendar icon'});
+    res.status(200).json({ message: 'Success patch Calendar icon' });
 }
 
 async function deleteCalendarIcon(req, res) {
     const userId = req.user.id;
-    const { iconId } = req.parms;
+    const { iconId } = req.params;
 
-    await calendarIconRepo.deletIcon({ userId, iconId });
+    await calendarIconRepo.deleteIcon({ userId, iconId });
 
     res.status(200).json({ message: 'Delete calendar_icon' });
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const friendsController = require('../controllers/frineds.controller');
+const friendsController = require('../controllers/friends.controller');
 const { authenticateToken } = require('../middlewares/auth');
 const asyncHandler = require('../utils/asyncHandler');
 

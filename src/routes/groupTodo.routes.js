@@ -1,5 +1,5 @@
 const express = require('express');
-const groupTodoController = require('../controllers/groupTodo.conttroller');
+const groupTodoController = require('../controllers/groupTodo.controller');
 const { authenticateToken } = require('../middlewares/auth');
 const asyncHandler = require('../utils/asyncHandler');
 

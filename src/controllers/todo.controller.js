@@ -18,7 +18,7 @@ async function createTodo(req, res) {
 
 async function patchTodo(req, res) {
     const userId = req.user.id;
-    const { id } = req.parms;
+    const { id } = req.params;
     const { completed } = req.body;
 
     await todoRepo.updateCompleted(userId, id, completed);
@@ -28,7 +28,7 @@ async function patchTodo(req, res) {
 
 async function deleteTodo(req, res) {
     const userId = req.user.id;
-    const { id } = req.parms;
+    const { id } = req.params;
 
     await todoRepo.deleteTodo(id, userId);
 

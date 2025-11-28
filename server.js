@@ -1,5 +1,5 @@
 const http = require('http');
-const { Server } = reqire('socket.io');
+const { Server } = require('socket.io');
 const app = require('./src/app');
 const env = require('./src/config/env');
 
@@ -13,9 +13,9 @@ const io = new Server(server, {
 });
 
 // socket 설정
-const initChatSocker = require('./src/sockets/chat.socket');
+const initChatSocket = require('./src/sockets/chat.socket');
 
-initChatSocker(io);
+initChatSocket(io);
 
 server.listen(env.port, () => {
     console.log(`Server is running on port ${env.port}`);

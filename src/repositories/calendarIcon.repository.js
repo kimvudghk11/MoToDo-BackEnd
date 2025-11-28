@@ -21,7 +21,7 @@ async function updateIcon({ userId, iconId, iconNumber }) {
     return result;
 }
 
-async function deletIcon({ userId, iconId }) {
+async function deleteIcon({ userId, iconId }) {
     const sql = 'DELETE FROM calendar_icon WHERE id = ? AND user_id = ?';
     const [result] = await db.query(sql, [iconId, userId]);
 
@@ -32,5 +32,5 @@ module.exports = {
     findByUser,
     createIcon,
     updateIcon,
-    deletIcon,
+    deleteIcon,
 }

@@ -19,7 +19,7 @@ async function createGroupTodo(req, res) {
 }
 
 async function deleteGroupTodo(req, res) {
-    const { id } = req.parms;
+    const { id } = req.params;
 
     await groupTodoRepo.deleteGroupTodo(id);
 
@@ -27,7 +27,7 @@ async function deleteGroupTodo(req, res) {
 }
 
 async function patchGroupTodo(req, res) {
-    const { id } = req.parms;
+    const { id } = req.params;
     const { completed } = req.body;
 
     await groupTodoRepo.updateCompleted(id, completed);

@@ -2,7 +2,7 @@ const messageRepo = require('../repositories/message.repository');
 
 async function getChatHistory(req, res) {
     const senderId = req.user.id;
-    const receiverId = req.parms.receiverId;
+    const receiverId = req.params.receiverId;
 
     const messages = await messageRepo.findChatHistory(senderId, receiverId);
 

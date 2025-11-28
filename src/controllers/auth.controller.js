@@ -8,7 +8,7 @@ async function register(req, res) {
 
     const existing = await userRepo.findByUsername(username);
 
-    if (existing) 
+    if (existing)
         return res.status(400).json({ error: 'Username already exists' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -37,7 +37,7 @@ async function login(req, res) {
     if (!match)
         return res.status(401).json({ error: 'Invalid credentials' });
 
-    const token = jwt.sign({ id: user.id, username: user.username }, env.jwtScret, {
+    const token = jwt.sign({ id: user.id, username: user.username }, env.jwtSecret, {
         expiresIn: '24h',
     });
 

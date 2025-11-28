@@ -11,7 +11,7 @@ async function createGroup(req, res) {
     const userId = req.user.id;
     const { code, name } = req.body;
 
-    const groupId = await groupRepo.createGruop({ code, name, creatorId: userId });
+    const groupId = await groupRepo.createGroup({ code, name, creatorId: userId });
 
     await groupRepo.addMember(groupId, userId);
 
@@ -19,7 +19,7 @@ async function createGroup(req, res) {
 }
 
 async function checkGroupCode(res, req) {
-    const { code } = req.parms;
+    const { code } = req.params;
     const exists = await groupRepo.checkGroupCodeExists(code);
 
     res.json({ exists });
@@ -36,14 +36,14 @@ async function joinGroup(req, res) {
 
     await groupRepo.addMember(group.id, userId);
 
-    res.status(201).json({ success: true, groupdId: group.id });
+    res.status(201).json({ success: true, groupId: group.id });
 }
 
 async function leaveGroup(req, res) {
     const userId = req.user.id;
     const { groupId } = req.body;
 
-    const result = await groupRepo.removeMemberByCode(groupdId, userId);
+    const result = await groupRepo.removeMemberByCode(groupId, userId);
 
     if (result.affectedRows === 0)
         return res

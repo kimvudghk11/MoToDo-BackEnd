@@ -15,11 +15,11 @@ async function createEvent(req, res) {
         userId, title, description, start_date, end_date, all_day, color,
     });
 
-    res.status(201).json({ saveEventId: result.inserId });
+    res.status(201).json({ saveEventId: result.insertId });
 }
 
 async function updateEvent(req, res) {
-    const { id } = req.parms;
+    const { id } = req.params;
     const { title, description, start_date, end_date, all_day, color } = req.body;
 
     if (!title || !start_date || !end_date)
@@ -33,7 +33,7 @@ async function updateEvent(req, res) {
 }
 
 async function deleteEvent(req, res) {
-    const id = req.parms.id;
+    const id = req.params.id;
     const userId = req.user.id;
 
     const result = await calendarRepo.deleteEvent(id, userId);

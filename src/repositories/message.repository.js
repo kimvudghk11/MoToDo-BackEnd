@@ -4,7 +4,7 @@ async function findChatHistory(senderId, receiverId) {
     const sql = `
         SELECT * FROM message
         WHERE (sender_id = ? AND receiver_id =?)
-        OR (sender_id = ? AND recevier_id = ?)
+        OR (sender_id = ? AND receiver_id = ?)
         ORDER BY created_at ASC
     `;
     const [rows] = await db.query(sql, [senderId, receiverId, receiverId, senderId]);
